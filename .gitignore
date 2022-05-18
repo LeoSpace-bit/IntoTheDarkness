@@ -81,7 +81,7 @@ crashlytics-build.properties
 #/[Aa]ssets/Prefabs/
 #/[Aa]ssets/Presets/
 #/[Aa]ssets/Resources/
-#/[Aa]ssets/Scenes/
+/[Aa]ssets/Scenes/
 #/[Aa]ssets/Settings/
 
 #*.jpg
