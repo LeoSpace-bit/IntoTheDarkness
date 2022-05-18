@@ -73,4 +73,13 @@ crashlytics-build.properties
 
 /[Aa]ssets/TextMesh Pro/
 
-
+/[Aa]ssets/Animations/
+/[Aa]ssets/Audio/
+/[Aa]ssets/Fonts/
+/[Aa]ssets/Materials/
+/[Aa]ssets/Model/
+/[Aa]ssets/Prefabs/
+/[Aa]ssets/Presets/
+/[Aa]ssets/Resources/
+/[Aa]ssets/Scenes/
+/[Aa]ssets/Settings/
