@@ -85,6 +85,7 @@ crashlytics-build.properties
 #/[Aa]ssets/Settings/
 
 *.keystore
+/__BUILD__/
 
 #*.jpg
 #*.png
