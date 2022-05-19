@@ -84,6 +84,8 @@ crashlytics-build.properties
 #/[Aa]ssets/Scenes/
 #/[Aa]ssets/Settings/
 
+*.keystore
+
 #*.jpg
 #*.png
 #*.mat
