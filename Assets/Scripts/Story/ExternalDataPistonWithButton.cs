@@ -14,7 +14,6 @@ public class ExternalDataPistonWithButton : MonoBehaviour
     private GameObject _instaledPrefab;
     private Transform _parentUI;
 
-    
     private void Awake()
     {
         _inventory = GameObject.FindGameObjectWithTag("GlobalScript").GetComponent<Inventory>();
@@ -60,11 +59,9 @@ public class ExternalDataPistonWithButton : MonoBehaviour
                 _inventory.SubtractingAmountItem(6, out int _, 10);
 
                 StartCoroutine(Execute());
-
                 Destroy(_instaledPrefab);
             }
         }
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -76,7 +73,6 @@ public class ExternalDataPistonWithButton : MonoBehaviour
                 _instaledPrefab.SetActive(false);
             }
         }
-
     }
 
     private IEnumerator Execute()

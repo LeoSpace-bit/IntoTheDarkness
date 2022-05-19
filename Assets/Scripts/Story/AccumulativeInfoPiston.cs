@@ -9,6 +9,7 @@ public class AccumulativeInfoPiston : MonoBehaviour
 
     private Inventory _inventory;
 
+    private bool _once;
 
     private void Awake()
     {
@@ -20,8 +21,9 @@ public class AccumulativeInfoPiston : MonoBehaviour
     {
         var items = _inventory.InventoryItems;
 
-        if(items[2].Amount >= 20 && items[3].Amount >= 5 && items[6].Amount >=10)
+        if(!_once && items[2].Amount >= 20 && items[3].Amount >= 5 && items[6].Amount >=10)
         {
+            _once = true;
             Event_Complete.Invoke();
         }
 
