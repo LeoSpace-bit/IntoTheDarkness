@@ -7,6 +7,7 @@ public class Daytime : MonoBehaviour
 {
     [SerializeField] private Gradient _directionalLightGradient;
     [SerializeField] private Gradient _ambientLightGradient;
+    [SerializeField] private Gradient _fogColorGradient;
 
     [SerializeField, Range(1, 3600)] private float _timeDayInSeconds = 60;
     [SerializeField, Range(0.0f, 1.0f)] private float _timeProgress;
@@ -34,11 +35,7 @@ public class Daytime : MonoBehaviour
         _directionLight.color = _directionalLightGradient.Evaluate(_timeProgress);
         RenderSettings.ambientLight = _ambientLightGradient.Evaluate(_timeProgress);
 
-        //if(TimeProgress >= 0.255f && TimeProgress <= 0.78f ? false : true)
-        //{
-        //    RenderSettings.ambientIntensity = 0.5f;
-        //}
-
+        RenderSettings.fogColor = _fogColorGradient.Evaluate(_timeProgress);
 
         _directionLight.transform.localEulerAngles = new Vector3(360f * _timeProgress - 90, _defaultAngles.x, _defaultAngles.z);
     }
