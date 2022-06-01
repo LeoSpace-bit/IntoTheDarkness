@@ -22,13 +22,11 @@ public class SaveLoadManager : MonoBehaviour
 
     private void Update()
     {
-        //save
         if(Input.GetKeyUp(KeyCode.Keypad7))
         {
             Save();
         }
 
-        //load
         if (Input.GetKeyUp(KeyCode.Keypad9))
         {
             StartCoroutine(LoadStateScene());
@@ -42,15 +40,10 @@ public class SaveLoadManager : MonoBehaviour
         BinarySavingSystem.SaveInventory(_inventory.InventoryItems);
 
         BinarySavingSystem.SaveGameInformation(new GameInfoData(_worldTime.TimeProgress, (float)_gameRuler.CurrentHealth, _gameRuler.CurrentMadness, _storyManager.HistoryProgress));
-
-        // время (0..1)
-        // жизнь
-        // психологическое здоровье
-        // ID истории (загрузка: список со ссылками на тригеры, вызов тригеров)
+        //ID-истории (загрузка: список со ссылками на тригеры, вызов тригеров)
 
         BinarySavingSystem.UniversalSave(FindObjectsWithTag("TreeAdv"), "TreeAdv");
         BinarySavingSystem.UniversalSave(FindObjectsWithTag("Log"), "Log");
-
     }
 
     public void Load()
@@ -153,7 +146,6 @@ public class SaveLoadManager : MonoBehaviour
 
         #endregion
 
-
     }
 
     private void UniversalLoadObject(GameObject prefab, PositionRotationData[] positionAndRotationData, string TagFromDelete)
@@ -197,9 +189,7 @@ public class SaveLoadManager : MonoBehaviour
             yield return null;
 
 
-
         Load();
-
 
 
         waitFading = true;
@@ -281,7 +271,6 @@ public static class BinarySavingSystem
         }
     }
 
-
     public static void SaveInventory(List<InventoryItem> values)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -322,28 +311,12 @@ public static class BinarySavingSystem
             string path = Application.persistentDataPath + $"/{filename}.b";
             FileStream stream = new FileStream(path, FileMode.Create);
 
-            //PositionRotationData[] data = new PositionRotationData[values.Count];
-
-
             List<PositionRotationData> data = new List<PositionRotationData>();
 
             foreach (var item in values)
             {
                 data.Add(new PositionRotationData(item));
             }
-
-
-            //for (int i = 0; i < values.Count; i++)
-            //{
-            //    data[i].Position[0] = values[i].position.x;
-            //    data[i].Position[1] = values[i].position.y;
-            //    data[i].Position[2] = values[i].position.z;
-
-            //    data[i].Rotation[0] = values[i].rotation.x;
-            //    data[i].Rotation[1] = values[i].rotation.y;
-            //    data[i].Rotation[2] = values[i].rotation.z;
-            //    data[i].Rotation[3] = values[i].rotation.w;
-            //}
 
             formatter.Serialize(stream, data.ToArray());
             stream.Close();
@@ -352,9 +325,6 @@ public static class BinarySavingSystem
         {
             Debug.LogError($"Values is null. [{filename}]");
         }
-
-
-        
     }
 
     public static PositionRotationData[] UniversalLoad(string filename)
@@ -407,5 +377,4 @@ public static class BinarySavingSystem
             return null;
         }
     }
-
 }

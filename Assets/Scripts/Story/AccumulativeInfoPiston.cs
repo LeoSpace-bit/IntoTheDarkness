@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +6,6 @@ public class AccumulativeInfoPiston : MonoBehaviour
     [SerializeField] public UnityEvent Event_Complete = new UnityEvent();
 
     private Inventory _inventory;
-
     private bool _once;
 
     private void Awake()
@@ -26,8 +23,5 @@ public class AccumulativeInfoPiston : MonoBehaviour
             _once = true;
             Event_Complete.Invoke();
         }
-
     }
-
-
 }

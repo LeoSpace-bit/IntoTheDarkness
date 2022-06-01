@@ -1,5 +1,4 @@
 using Assets.Scripts.Story;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +46,4 @@ public class StoryManager : MonoBehaviour
 
         _animator.SetBool("Faded", false);
     }
-
-
 }

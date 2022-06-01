@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    [SerializeField] private GameRuler _rules;
+    [SerializeField] private GameRuler _gameRules;
     [SerializeField] private Daytime _time;
 
     [SerializeField] private AudioSource _breath;
@@ -21,7 +21,7 @@ public class AudioController : MonoBehaviour
 
     private void Update()
     {
-        if(_rules.IsNight)
+        if(_gameRules.IsNight)
         {
             if(_audioVolume > 0f)
             {
@@ -60,9 +60,7 @@ public class AudioController : MonoBehaviour
             _breath.volume = 1.1f - _audioVolume;
 
         }
-
     }
-
 
     public void GenerateTimeStamp()
     {

@@ -22,12 +22,10 @@ public class Daytime : MonoBehaviour
         set => _timeProgress = value < 0 ? 0 : value > 1 ? 1 : value;
     }
 
-    
     void Start() => _defaultAngles = _directionLight.transform.localEulerAngles;
 
     void Update()
     {
-
         if(Application.isPlaying) _timeProgress += Time.deltaTime / _timeDayInSeconds;
 
         if (_timeProgress > 1f) _timeProgress = 0f;

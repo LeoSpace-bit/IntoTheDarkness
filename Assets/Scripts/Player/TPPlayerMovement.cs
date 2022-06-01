@@ -42,7 +42,7 @@ public class TPPlayerMovement : MonoBehaviour
 	private float velocityY;
 	private float runningEnduranceLimit = 2f;
 
-    void Update()
+	private void Update()
 	{
 		#region INPUT
 		//Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));	// For PC test
@@ -78,7 +78,7 @@ public class TPPlayerMovement : MonoBehaviour
 		_animator.SetBool("isRun", magnitudeMove > 0.1 ? running : false);
 	}
 
-	void Move(Vector2 inputDir, bool running, float walkingCost, float runningCost)
+	private void Move(Vector2 inputDir, bool running, float walkingCost, float runningCost)
 	{
 		var deltaStamina = running ? runningCost * Time.deltaTime : walkingCost * Time.deltaTime;
 
@@ -105,7 +105,7 @@ public class TPPlayerMovement : MonoBehaviour
 		}
 	}
 
-	void Jump(float cost)
+	private void Jump(float cost)
 	{
 		if (_characterController.isGrounded && _stamina >= cost)
 		{
@@ -114,7 +114,7 @@ public class TPPlayerMovement : MonoBehaviour
 		}
 	}
 
-	float GetModifiedSmoothTime(float smoothTime)
+	private float GetModifiedSmoothTime(float smoothTime)
 	{
 		if (_characterController.isGrounded)
 		{
